@@ -16,12 +16,29 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome' , []);
-});
+// Route::get('/', function () {
+//     return view('welcome' , []);
+// });
 
-Route::get('/categories/', [CategoryController::class, 'index'])->name('categories.index');
+// Route::get('/', [PagesController::class, 'home'])->name('pages.home'); (beter and more clear)
 
-//Route::get('/categories/', [CategoryController::class, 'index'])->name('categories.category-overview');
 
-Route::get('/books/', [BookController::class, 'index'])->name('books.index');
+Route::get('/', [CategoryController::class, 'index']);
+
+
+// Find a category by its ID and pass it to view called ******
+Route::get('categories/{id}', [CategoryController::class, 'categoryOverview'])->name('categories.category-overview');
+
+// Route::get('/categories/{id}}', [CategoryController::class, 'categoryOverview'])->name('categories.category-overview');
+
+// if (! file_exists($id) {
+//      dd OR ddd('this category dose not exist');        SHOW THE MSEESEGE
+//OR    abort(404);                                       GIVE THE 404 ERROR
+//OR    return redirect('/);                              WELL GO BACK TO HOME PAGE
+// })
+
+Route::get('/books/book-overview/{id}', [BookController::class, 'bookOverview'])->name('books.book-overview');
+
+// Route::get('/books/{id}', [BookController::class, 'show'])->name('books.book-overview');
+
+Route::get('/categories/best-sellers/{id}', [CategoryController::class, 'bestSellersCategory'])->name('categories.best-sellers');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +15,48 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
         $categories = Category::all();
 
+     
         return view('categories.index' , ['categories'=> $categories]);
+        // $bestSellersId = 7;
+        // $bestSellers = Category::whereHas('categories', function($query) use ($bestSellersId) {
+        //     $query->where('id', $bestSellersId);
+        // })->get();
+
+        // $categories = Category::where('id', '<', $bestSellersId)->get();
+        // return view('categories.index', compact('categories', 'bestSellers'));
+        
     }
+
+    public function categoryOverview($id)
+    {
+        //$category = Category::where('id', $id);
+        $category = Category::findOrFail($id);
+        //$products = Product::where('id', $id)->get();
+        // dd($categories);
+        return view('categories.category-overview' , [
+            'category'=> $category
+        ]);
+        // $category = Category::findorfail($id);
+        // $books = $category->books;
+        // return view('category', compact('category', 'books'));
+    }
+    
+    public function bestSellersCategory() {
+        $bestSellersCategory = Category::find(7);
+        return view('categories.best-sellers', ['category' => $bestSellersCategory]);
+        // $books = $category->books()->take(5)->get();
+        // return view('bestsellers')->with(['books' => $books]);
+
+        // $bestSellersCategory = Category::where('id', 7)->first();
+        // $bestSellerBooks = $bestSellersCategory->books()->take(5)->get();
+        // return view('categories.index')->with(['bestSellerBooks' => $bestSellerBooks]);
+
+        // $category = Category::find(7);
+        // return view('index', ['category' => $category]);
+      }
 
     /**
      * Show the form for creating a new resource.
