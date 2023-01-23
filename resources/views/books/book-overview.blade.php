@@ -16,7 +16,7 @@
         <div class="col-md-8">
             <h2 class="text-center">{{ $book->title }}</h2>
             <p class="text-center">Written by {{ $book->author }}</p>
-            <p class="text-center">Price:{{ $book->price }}</p>
+            <p class="text-center">Price:{{ $book->price }}€</p>
             <div class="form-group text-center ">
                 <label for="quantity">Quantity:</label>
                 <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
