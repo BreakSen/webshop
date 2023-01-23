@@ -20,7 +20,15 @@ return new class extends Migration
             $table->text('description');
             $table->text('image');
             $table->integer('price');
-            $table->integer('category_id')->unsigned()->index();
+            $table->foreignId('category_id')->constrained();
+            //$table->integer('category_id');
+            //https://laravel.com/docs/9.x/migrations#foreign-key-constraints
+            //Schema::table('posts', function (Blueprint $table) {
+            //     $table->unsignedBigInteger('user_id');
+            
+            //     $table->foreign('user_id')->references('id')->on('users');
+            // });
+            // check the link to do a better id category key
             $table->timestamps();
         });
     }

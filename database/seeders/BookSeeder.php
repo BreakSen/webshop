@@ -36,6 +36,8 @@ class BookSeeder extends Seeder
 
             ];
         }
+        //beter manier:
+        //gebruik factroies
 
         DB::table('books')->insert($books);
     }

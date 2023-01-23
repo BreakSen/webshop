@@ -14,10 +14,16 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = book::all();
+        // $books = book::all();
 
-        return view('books.index' , ['books'=> $books]);
+        // return view('books.book-overview' , ['books'=> $books]);
     }
+    
+    public function bookOverview($id)
+{
+    $book = Book::findOrFail($id);
+    return view('books.book-overview', ['book' => $book]);
+}
 
     /**
      * Show the form for creating a new resource.
