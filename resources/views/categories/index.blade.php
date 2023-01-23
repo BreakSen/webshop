@@ -35,7 +35,7 @@
     <div class="bg-neutral-400 grid grid-cols-5 gap-0 border border-neutral-400 border-l-0 border-r-0">
     @foreach ($categories as $category)
   @if($category->id == 7)
-  @foreach ($category->books()->take(5)->get() as $book)
+  @foreach ($category->books()->take(10)->get() as $book)
     <div class="bg-white p-4 border-t-2 border-b-2 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
     <a href="{{ route('books.book-overview', $book->id) }}">
         <img src="{{ $book->image }}" class="w-32 h-48 object-cover mr-2" alt="{{ $book->title }}">

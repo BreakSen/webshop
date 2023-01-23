@@ -23,13 +23,13 @@ class BookSeeder extends Seeder
         $books = [];
 
 
-        for ($i = 1; $i <= 50; $i++)
+        for ($i = 1; $i <= 200; $i++)
         {
 
             $books [] = [
-                'title'         => $faker->sentence(rand(8,12)),
+                'title'         => $faker->sentence(rand(1,2)),
                 'author'        => $faker->name(),
-                'description'   => $faker->paragraphs(rand(8,12), true),
+                'description'   => $faker->paragraphs(rand(5,10), true),
                 'image'          => $faker->imageUrl(500, 775, 'books', true),
                 'price'         => rand(5,30),
                 'category_id'   => rand(1,7),

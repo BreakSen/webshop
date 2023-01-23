@@ -14,16 +14,16 @@
 @section('body')
 <body class="min-h-screen">
         <div class="col-md-8">
-            <h2 class="text-right">{{ $book->title }}</h2>
-            <p class="text-right">By {{ $book->author }}</p>
-            <p class="text-right">{{ $book->price }}</p>
-            <div class="form-group text-right ">
+            <h2 class="text-center">{{ $book->title }}</h2>
+            <p class="text-center">Written by {{ $book->author }}</p>
+            <p class="text-center">Price:{{ $book->price }}</p>
+            <div class="form-group text-center ">
                 <label for="quantity">Quantity:</label>
                 <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
             </div>
-            <div class="text-right form-group">
-                <a href="#" class="border-neutral-400 border-2  text-right btn btn-primary">Buy Now</a>
-                <a href="#" class="border-neutral-400 border-2  text-right btn btn-secondary">Add to Cart</a>
+            <div class="text-center form-group">
+                <a href="#" class="border-neutral-400 border-2  text-center btn btn-primary">Buy Now</a>
+                <a href="#" class="border-neutral-400 border-2  text-center btn btn-secondary">Add to Cart</a>
             </div>
             <div class="container">
                 <div class="row">
