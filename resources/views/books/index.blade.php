@@ -1,1 +1,0 @@
-<h1>Here is the book details page</h1>
