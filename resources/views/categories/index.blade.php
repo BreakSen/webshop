@@ -15,12 +15,12 @@
                     
                 </div>
                 <div class="px-5 py-3">
-                    <h3 class="text-gray-700 uppercase">{{ $book->name }}</h3>
+                    <h3 class="text-gray-700 uppercase">{{ $book->title }}</h3>
                     <span class="mt-2 text-gray-500">${{ $book->price }}</span>
                     <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $book->id }}" name="id">
-                        <input type="hidden" value="{{ $book->name }}" name="name">
+                        <input type="hidden" value="{{ $book->title }}" name="name">
                         <input type="hidden" value="{{ $book->price }}" name="price">
                         <input type="hidden" value="{{ $book->image }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
