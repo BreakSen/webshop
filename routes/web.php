@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\BookController;
 use App\Models\Category;
@@ -42,3 +43,11 @@ Route::get('/books/book-overview/{id}', [BookController::class, 'bookOverview'])
 // Route::get('/books/{id}', [BookController::class, 'show'])->name('books.book-overview');
 
 Route::get('/categories/best-sellers/{id}', [CategoryController::class, 'bestSellersCategory'])->name('categories.best-sellers');
+
+//Cart Routes
+Route::get('books', [BookController::class, 'bookList'])->name('books.list');
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');

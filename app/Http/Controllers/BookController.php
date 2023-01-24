@@ -25,6 +25,13 @@ class BookController extends Controller
     return view('books.book-overview', ['book' => $book]);
 }
 
+public function bookList()
+{
+    $books = Book::all();
+
+    return view('books', compact('books'));
+}
+
     /**
      * Show the form for creating a new resource.
      *

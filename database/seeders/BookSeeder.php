@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Illuminate\Support\Facades\DB;
 
+
 class BookSeeder extends Seeder
 {
     /**
