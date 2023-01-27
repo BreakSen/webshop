@@ -28,14 +28,16 @@
 
           <!-- Page Content -->
           <main>
-              {{ $slot }}
+              <div>
+              @yield('body')
+              </div>
           </main>
       </div>
   </body>
   </html> 
   
 
-  {{-- <!doctype html>
+  <!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -50,7 +52,7 @@
   </head>
   <body>
     <header>
-      <nav class="flex items-center justify-between bg-neutral-400">
+{{--      <nav class="flex items-center justify-between bg-neutral-400">
       <a href="/">
         <img src="{{ URL('images/logo.png') }}" class= "w-24 h-24" alt="Magic Webstore Logo"/>
     </a>
@@ -60,12 +62,7 @@
         </div>
       </nav>
     </header>
-    @yield('navbar')
-<body class="min-h-screen">
-    <div>
-        @yield('body')
-    </div>
-</body>
+    @yield('navbar')--}}
 <footer class="p-2 bg-neutral-400 text-[#8f763f]" style="display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end;">
   <div class="container mx-auto">
     <div class="grid grid-cols-2 gap-4">
@@ -81,4 +78,4 @@
   </div>
 </footer>
 @yield('footer')
-</html>--}}
+</html>

@@ -23,7 +23,10 @@ use App\Models\Category;
 //     return view('welcome' , []);
 // });
 
-// Route::get('/', [PagesController::class, 'home'])->name('pages.home'); (beter and more clear)
+// Route::get('/', [PagesController::class, 'home'])->name('pages.home'); 
+
+//(beter and more clear)
+
 Route::get('/', [CategoryController::class, 'index']);
 
 // Find a category by its ID and pass it to view called ******
@@ -51,17 +54,15 @@ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
-
-
-// Breeze Routes 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Breeze Routes 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 require __DIR__.'/auth.php';
