@@ -20,10 +20,16 @@
             <div class="form-group text-center ">
                 <label for="quantity">Quantity:</label>
                 <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
-            </div>
-            <div class="text-center form-group">
-                <a href="#" class="border-neutral-400 border-2  text-center btn btn-primary">Buy Now</a>
-                <a href="#" class="border-neutral-400 border-2  text-center btn btn-secondary">Add to Cart</a>
+            
+            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $book->id }}" name="id">
+                        <input type="hidden" value="{{ $book->title }}" name="title">
+                        <input type="hidden" value="{{ $book->price }}" name="price">
+                        <input type="hidden" value="{{ $book->image }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="border-neutral-400 border-2 text-center btn btn-primary">Add To Cart</button>
+                    </form>
             </div>
             <div class="container">
                 <div class="row">

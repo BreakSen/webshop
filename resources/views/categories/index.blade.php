@@ -25,13 +25,24 @@
 </a>
     <div class="bg-neutral-400 grid grid-cols-5 gap-0 border border-neutral-400 border-l-0 border-r-0">
     @foreach ($categories as $category)
-  @if($category->id == 7)
-  @foreach ($category->books()->take(10)->get() as $book)
+    @if($category->id == 7)
+    @foreach ($category->books()->take(10)->get() as $book)
     <div class="bg-white p-4 border-t-2 border-b-2 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
     <a href="{{ route('books.book-overview', $book->id) }}">
         <img src="{{ $book->image }}" class="w-32 h-48 object-cover mr-2" alt="{{ $book->title }}">
         <p class="text-black">{{ $book->title }}</p>
     </a>
+{{--   Add to cart option  
+  <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $book->id }}" name="id">
+                        <input type="hidden" value="{{ $book->title }}" name="title">
+                        <input type="hidden" value="{{ $book->price }}" name="price">
+                        <input type="hidden" value="{{ $book->image }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="border-neutral-400 border-2 text-center btn btn-primary">Add To Cart</button>
+                    </form>--}}
+                    
     </div>
 @endforeach
   @endif
