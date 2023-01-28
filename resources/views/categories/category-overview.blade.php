@@ -15,8 +15,8 @@
         @foreach ($category->books as $book)
             <div class="bg-white p-4 border-t-2 border-b-2 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
                 <a href="{{ route('books.book-overview', $book->id) }}">
-                    <img src="{{ $book->image }}" class="w-32 h-48 object-cover mr-2" alt="{{ $book->title }}">
-                    <p class="text-black">{{ $book->title }}</p>
+                    <img src="{{ $book->image }}" class="w-32 h-48 object-cover mr-2" alt="{{ $book->name }}">
+                    <p class="text-black">{{ $book->name }}</p>
                 </a>
             </div>
         @endforeach

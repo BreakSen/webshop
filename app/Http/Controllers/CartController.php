@@ -16,27 +16,31 @@ class CartController extends Controller
         $cartItems = Cart::getContent();
         //dd($cartItems);
         return view('cart', compact('cartItems'));
+        // $cart = Cart::getContent();
+        // $cartItems = $cart->toArray();
+     
+        return view('cart', compact('cartItems'));
     }
 
 
     public function addToCart(Request $request)
-    {
-        Cart::add([
-            'id' => $request->id,
-            'title' => $request->title,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'image' => $request->image,
- 
-        ]);
-        session()->flash('success', 'Book is Added to Cart Successfully !');
+{
+    \Cart::add([
+        'id' => $request->id,
+        'name' => $request->name,
+        'price' => $request->price,
+        'quantity' => $request->quantity,
+        'attributes' => ['image' => $request->image]
 
-        return redirect()->route('cart.list');
-    }
+    ]);
+    session()->flash('success', 'Book is Added to Cart Successfully !');
+
+    return redirect()->route('cart.list');
+}
 
     public function updateCart(Request $request)
     {
-        Cart::update(
+        \Cart::update(
             $request->id,
             [
                 'quantity' => [
@@ -53,7 +57,7 @@ class CartController extends Controller
 
     public function removeCart(Request $request)
     {
-        Cart::remove($request->id);
+        \Cart::remove($request->id);
         session()->flash('success', 'Item Cart Remove Successfully !');
 
         return redirect()->route('cart.list');
@@ -61,7 +65,7 @@ class CartController extends Controller
 
     public function clearAllCart()
     {
-        Cart::clear();
+        \Cart::clear();
 
         session()->flash('success', 'All Item Cart Clear Successfully !');
 

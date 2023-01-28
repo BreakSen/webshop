@@ -28,7 +28,7 @@ class BookSeeder extends Seeder
         {
 
             $books [] = [
-                'title'         => $faker->sentence(rand(1,2)),
+                'name'         => $faker->sentence(rand(1,2)),
                 'author'        => $faker->name(),
                 'description'   => $faker->paragraphs(rand(5,10), true),
                 'image'          => $faker->imageUrl(500, 775, 'books', true),

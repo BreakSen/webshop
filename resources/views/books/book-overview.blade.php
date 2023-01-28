@@ -14,7 +14,7 @@
 @section('body')
 <body class="min-h-screen">
         <div class="col-md-8">
-            <h2 class="text-center">{{ $book->title }}</h2>
+            <h2 class="text-center">{{ $book->name }}</h2>
             <p class="text-center">Written by {{ $book->author }}</p>
             <p class="text-center">Price:{{ $book->price }}€</p>
             <div class="form-group text-center ">
@@ -24,7 +24,7 @@
             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{ $book->id }}" name="id">
-                        <input type="hidden" value="{{ $book->title }}" name="title">
+                        <input type="hidden" value="{{ $book->name }}" name="name">
                         <input type="hidden" value="{{ $book->price }}" name="price">
                         <input type="hidden" value="{{ $book->image }}"  name="image">
                         <input type="hidden" value="1" name="quantity">
@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-4">
                     <img src="{{ $book->image }}" style="width: 237px; height: 361
-                    px;" alt="{{ $book->title }}">
+                    px;" alt="{{ $book->name }}">
             </div>
             <p class="">{{ $book->description }}</p>
         </div>
