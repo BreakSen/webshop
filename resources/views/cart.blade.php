@@ -4,6 +4,8 @@
           {{ __('Cart') }}
       </h2>
   </x-slot>
+  @section('body')
+  <body>
           <main class="my-8">
             <div class="container px-6 mx-auto">
                 <div class="flex justify-center my-6">
@@ -32,14 +34,13 @@
                               @foreach ($cartItems as $item)
                             <tr>
                               <td class="hidden pb-4 md:table-cell">
-                                <a href="#">
+                                <a href="{{ route('books.book-overview', $item->id) }}">
                                   <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
                                 </a>
                               </td>
                               <td>
-                                <a href="#">
+                                <a href="{{ route('books.book-overview', $item->id) }}">
                                   <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}</p>
-                                  
                                 </a>
                               </td>
                               <td class="justify-center mt-6 md:justify-end md:flex">
@@ -50,8 +51,8 @@
                                       @csrf
                                       <input type="hidden" name="id" value="{{ $item->id}}" >
                                     <input type="text" name="quantity" value="{{ $item->quantity }}" 
-                                    class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-blue-600" />
-                                    <button class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-violet-100 bg-violet-500">Update</button>
+                                    class="w-16 text-center h-6 text-gray-800 outline-none rounded border border-black-600" />
+                                    <button class="px-4 mt-1 py-1.5 text-sm rounded rounded shadow text-black bg-neutral-400">Update</button>
                                     </form>
                                   </div>
                                 </div>
@@ -65,7 +66,7 @@
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                   @csrf
                                   <input type="hidden" value="{{ $item->id }}" name="id">
-                                  <button class="px-4 py-2 text-white bg-red-600 shadow rounded-full">x</button>
+                                  <button class="px-4 py-2 text-white bg-neutral-400 shadow rounded-full">x</button>
                               </form>
                                 
                               </td>
@@ -80,7 +81,7 @@
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Clear Carts</button>
+                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-neutral-400">Clear Carts</button>
                           </form>
                         </div>
 
@@ -90,4 +91,6 @@
                   </div>
             </div>
         </main>
+    </body>
+    @endsection
 </x-app-layout>

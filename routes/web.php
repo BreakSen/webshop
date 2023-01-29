@@ -48,7 +48,7 @@ Route::get('/categories/best-sellers/{id}', [CategoryController::class, 'bestSel
 
 
 //Cart Routes
-Route::get('books', [BookController::class, 'bookList'])->name('books.list');
+Route::get('books/all-books', [BookController::class, 'bookList'])->name('books.list');
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');

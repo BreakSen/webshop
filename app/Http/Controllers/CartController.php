@@ -16,10 +16,16 @@ class CartController extends Controller
         $cartItems = Cart::getContent();
         //dd($cartItems);
         return view('cart', compact('cartItems'));
-        // $cart = Cart::getContent();
-        // $cartItems = $cart->toArray();
-     
-        return view('cart', compact('cartItems'));
+
+
+        // $cartItems = Cart::getContent();
+        // //dd($cartItems);
+        // foreach ($cartItems as $item) {
+        //     if (!isset($item->author)) {
+        //         // author is not present
+        //     }
+        // }
+        // return view('cart', compact('cartItems'));
     }
 
 
@@ -28,6 +34,7 @@ class CartController extends Controller
     \Cart::add([
         'id' => $request->id,
         'name' => $request->name,
+        'author' => $request->author,
         'price' => $request->price,
         'quantity' => $request->quantity,
         'attributes' => ['image' => $request->image]

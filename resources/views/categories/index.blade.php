@@ -27,7 +27,7 @@
     @foreach ($categories as $category)
     @if($category->id == 7)
     @foreach ($category->books()->take(10)->get() as $book)
-    <div class="bg-white p-4 border-t-2 border-b-2 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
+    <div class="bg-white p-4 border-t-1 border-b-1 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
     <a href="{{ route('books.book-overview', $book->id) }}">
         <img src="{{ $book->image }}" class="w-32 h-48 object-cover mr-2" alt="{{ $book->name }}">
         <p class="text-black">{{ $book->name }}</p>

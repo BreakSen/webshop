@@ -29,7 +29,7 @@ public function bookList()
 {
     $books = Book::all();
 
-    return view('books', compact('books'));
+    return view('books.all-books',  ['books' => $books]);
 }
 
     /**

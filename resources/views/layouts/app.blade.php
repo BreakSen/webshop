@@ -5,8 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+      <script src="https://cdn.tailwindcss.com"></script>
       <title>{{ config('app.name', 'Laravel') }}</title>
-
       <!-- Fonts -->
       <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -34,25 +34,13 @@
           </main>
       </div>
   </body>
-  </html> 
-  
-
-  <!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
-    </head>
-</nav>
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
   <head>
   </head>
   <body>
     <header>
-{{--      <nav class="flex items-center justify-between bg-neutral-400">
+     <nav class="flex items-center justify-between bg-neutral-400">
       <a href="/">
         <img src="{{ URL('images/logo.png') }}" class= "w-24 h-24" alt="Magic Webstore Logo"/>
     </a>

@@ -19,7 +19,7 @@
             <p class="text-center">Price:{{ $book->price }}€</p>
             <div class="form-group text-center ">
                 <label for="quantity">Quantity:</label>
-                <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
+                
             
             <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -27,7 +27,7 @@
                         <input type="hidden" value="{{ $book->name }}" name="name">
                         <input type="hidden" value="{{ $book->price }}" name="price">
                         <input type="hidden" value="{{ $book->image }}"  name="image">
-                        <input type="hidden" value="1" name="quantity">
+                        <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
                         <button class="border-neutral-400 border-2 text-center btn btn-primary">Add To Cart</button>
                     </form>
             </div>
