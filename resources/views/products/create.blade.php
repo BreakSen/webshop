@@ -33,11 +33,46 @@
                 <input type="text" name="name" class="form-control" placeholder="Name">
             </div>
         </div>
+        </div>
+     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Detail:</strong>
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                <strong>Author:</strong>
+                <input type="text" name="author" class="form-control" placeholder="Author">
             </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>image:</strong>
+                <input type="text" name="image" class="form-control" placeholder="Image">
+            </div>
+        </div>
+        </div>
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Price:</strong>
+                <input type="integer" name="price" class="form-control" placeholder="Price">
+            </div>
+            </div>
+            </div>
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Category_id:</strong>
+                <input type="number" name="category_id" class="form-control" placeholder="Category_id">
+            </div>
+        </div>
+        </div>
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>description:</strong>
+                <input type="text" name="description" class="form-control" placeholder="Description">
+            </div>
+        </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>

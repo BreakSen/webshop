@@ -55,19 +55,29 @@ public function bookList()
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-        $request->validate([
-            'name' => 'required',
-            'image' => 'required',
-            'category_id' => 'required',
-        ]);
+{
+    $request->validate([
+        'name' => 'required',
+        'author' => 'required',
+        'image' => 'required',
+        'price' => 'required',
+        'category_id' => 'required',
+        'description' => 'required'
+    ]);
 
-        Book::create($request->all());
-       
-        return redirect()->route('products.index')
-                        ->with('success','Book created successfully.');
-    }
+    $book = new Book([
+        'name' => $request->get('name'),
+        'author' => $request->get('author'),
+        'image' => $request->get('image'),
+        'price' => $request->get('price'),
+        'category_id' => $request->get('category_id'),
+        'description' => $request->get('description')
+    ]);
+
+    // dd($book); // Debugging code
+    $book->save();
+    return redirect()->route('products.index')->with('success', 'Product created successfully.');
+}
 
     /**
      * Display the specified resource.
@@ -75,11 +85,11 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
-    {
-        //
+    public function show($id)
+        {
+        $book = Book::findOrFail($id);
         return view('products.show',compact('book'));
-    }
+        }
 
     /**
      * Show the form for editing the specified resource.
@@ -100,20 +110,30 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Book $book, $id)
     {
-        //
+        $book = Book::findOrFail($id);
         $request->validate([
             'name' => 'required',
+            'author' => 'required',
             'image' => 'required',
+            'price' => 'required',
             'category_id' => 'required',
+            'description' => 'required'
         ]);
-      
+        //dd($request);
+    
+        
         $book->update($request->all());
+        // dd($book);
       
         return redirect()->route('products.index')
-                        ->with('success','Book updated successfully');
+                        ->with('success','Product updated successfully');
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -121,12 +141,10 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(book $book)
-    {
-        //
-        $book->delete();
-       
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
-    }
+    public function destroy(Book $book)
+        {
+            $book->delete();
+            return redirect()->route('products.index')
+                            ->with('success','Product deleted successfully');
+        }
 }

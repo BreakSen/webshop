@@ -63,6 +63,9 @@ Route::get('/checkout', [CartController::class, 'checkOut'])->name('checkout');
 
 //CRUD
 Route::resource('products', BookController::class)->middleware('auth');
+Route::put('products.update}', [BookController::class, 'update'])->name('products.update');
+Route::get('/products/{book}', 'BookController@show')->name('products.show');
+Route::delete('products/{book}', 'BookController@destroy')->name('books.destroy');
 // Breeze Routes 
 
 Route::middleware('auth')->group(function () {
