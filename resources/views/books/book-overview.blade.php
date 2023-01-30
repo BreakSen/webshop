@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-@extends('layouts.app')
-
-@section('navbar')
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/app.css">
-    <title>The book overview pages</title>
+    <title>{{$book->name}}</title>
 </head>
+@extends('layouts.app')
+
+@section('navbar')
+
 @endsection
 @section('body')
 <body class="min-h-screen">
@@ -34,8 +35,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                    <img src="{{ $book->image }}" style="width: 237px; height: 361
-                    px;" alt="{{ $book->name }}">
+                    <img src="{{ $book->image }}" style="width: 237px; height: 361px;" alt="{{ $book->name }}">
             </div>
             <p class="">{{ $book->description }}</p>
         </div>

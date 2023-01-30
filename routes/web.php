@@ -62,7 +62,7 @@ Route::get('/dashboard', function () {
 Route::get('/checkout', [CartController::class, 'checkOut'])->name('checkout');
 
 //CRUD
-Route::resource('products', BookController::class);
+Route::resource('products', BookController::class)->middleware('auth');
 // Breeze Routes 
 
 Route::middleware('auth')->group(function () {

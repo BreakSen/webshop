@@ -1,3 +1,6 @@
+<head>
+  <title>Home</title>
+</head>
 <x-app-layout>
 @section('body')
 @if (session('message'))
