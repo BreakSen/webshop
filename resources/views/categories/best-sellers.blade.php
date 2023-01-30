@@ -12,6 +12,9 @@
 @endsection
 @section('body')
 <body class="min-h-screen">
+<h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        {{ $category->name }}
+        </h2>
     <div class="bg-white grid grid-cols-5 gap-0 border border-neutral-400 border-l-0 border-r-0">
         @foreach ($category->books as $book)
             <div class="bg-white p-4 border-t-1 border-b-2 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">

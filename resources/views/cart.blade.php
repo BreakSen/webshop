@@ -81,11 +81,21 @@
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
                             @csrf
-                            <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-neutral-400">Clear Carts</button>
+                            <button class="px-6 py-2 text-sm  rounded shadow text-black  bg-neutral-400">Clear Carts</button>
+                          </form>
+                          <div class="flex justify-between mt-8">
+                          <form action="\" class="text-left">
+                            @csrf
+                            <button class="px-6 py-2 text-sm rounded shadow text-black bg-neutral-400">continue shopping</button>
+                          </form>
+                          <form action="{{ route('checkout') }}" class="text-right">
+                            @csrf
+                            <button class="px-6 py-2 text-sm rounded shadow text-black  bg-neutral-400">Pay</button>
                           </form>
                         </div>
-
-
+                          </form>
+                        </div>
+                        </div>
                       </div>
                     </div>
                   </div>

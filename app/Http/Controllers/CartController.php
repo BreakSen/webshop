@@ -78,4 +78,12 @@ class CartController extends Controller
 
         return redirect()->route('cart.list');
     }
+
+    public function checkOut() {
+
+        \Cart::clear();
+
+        session()->flash('message', 'Checkout was successful!');
+        return view('checkout');
+    }
 }

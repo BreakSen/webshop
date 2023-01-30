@@ -58,6 +58,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//CheckOut route
+Route::get('/checkout', [CartController::class, 'checkOut'])->name('checkout');
+
 // Breeze Routes 
 
 Route::middleware('auth')->group(function () {

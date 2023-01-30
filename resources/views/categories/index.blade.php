@@ -1,6 +1,10 @@
 <x-app-layout>
-  
 @section('body')
+@if (session('message'))
+    <div class="alert alert-success p-4 mb-3 bg-green-400 rounded">
+    <p class="text-green-800">{{ session('message') }}</p>
+    </div>
+@endif
 <body class="min-h-screen">
 <section class="bg-white py-10">
   <div class="container mx-auto">
