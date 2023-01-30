@@ -47,7 +47,7 @@
             <td>{{ $book->price }}</td>
             <td>{{ $book->category_id }}</td>
             <td>
-                <form action="{{ route('products.destroy',$book->id) }}" method="POST">
+            <form action="{{ route('books.destroy',$book->id) }}" method="POST">
    
                     <a class="btn btn-info" href="{{ route('products.show',$book->id) }}">Show</a>
     

@@ -141,10 +141,11 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
-        {
-            $book->delete();
-            return redirect()->route('products.index')
-                            ->with('success','Product deleted successfully');
-        }
+    public function destroy($id)
+    {
+        // dd($id);
+        $book = Book::findOrFail($id);
+        $book->forceDelete();
+        return redirect()->route('products.index')->with('success', 'Book deleted successfully');
+    }
 }
