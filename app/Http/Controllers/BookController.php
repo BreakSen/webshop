@@ -17,6 +17,11 @@ class BookController extends Controller
         // $books = book::all();
 
         // return view('books.book-overview' , ['books'=> $books]);
+        $books = Book::latest()->paginate(50);
+      
+        return view('products.index',compact('books'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
+        
     }
     
     public function bookOverview($id)
@@ -40,6 +45,7 @@ public function bookList()
     public function create()
     {
         //
+        return view('products.create');
     }
 
     /**
@@ -51,6 +57,16 @@ public function bookList()
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        Book::create($request->all());
+       
+        return redirect()->route('products.index')
+                        ->with('success','Book created successfully.');
     }
 
     /**
@@ -59,9 +75,10 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
         //
+        return view('products.show',compact('book'));
     }
 
     /**
@@ -70,9 +87,10 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
         //
+        return view('products.edit',compact('book'));
     }
 
     /**
@@ -82,9 +100,19 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required',
+            'category_id' => 'required',
+        ]);
+      
+        $book->update($request->all());
+      
+        return redirect()->route('products.index')
+                        ->with('success','Book updated successfully');
     }
 
     /**
@@ -93,8 +121,12 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(book $book)
     {
         //
+        $book->delete();
+       
+        return redirect()->route('products.index')
+                        ->with('success','Product deleted successfully');
     }
 }
