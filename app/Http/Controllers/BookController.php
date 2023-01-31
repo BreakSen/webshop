@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\book;
 use Database\Seeders\BookSeeder;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class BookController extends Controller
 {
@@ -45,8 +46,8 @@ public function bookList()
      */
     public function create()
     {
-        //
-        return view('products.create');
+        $categories= Category::all();
+        return view('products.create', ['categories' => $categories]);
     }
 
     /**
@@ -57,6 +58,7 @@ public function bookList()
      */
     public function store(Request $request)
 {
+    // dd($request);
     $request->validate([
         'name' => 'required',
         'author' => 'required',
@@ -87,10 +89,12 @@ public function bookList()
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-        {
-        $book = Book::findOrFail($id);
-        return view('products.show', compact('book'));
-        }
+{
+    $categories = Category::all();
+    $book = Book::findOrFail($id);
+    $category = Category::where('id', $book->category_id)->first();
+    return view('products.show', compact('book', 'categories', 'category'));
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -99,10 +103,11 @@ public function bookList()
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $book = Book::findOrFail($id);
-        return view('products.edit', compact('book'));
-    }
+{
+    $book = Book::findOrFail($id);
+    $categories = Category::all();
+    return view('products.edit', compact('book', 'categories'));
+}
 
     /**
      * Update the specified resource in storage.

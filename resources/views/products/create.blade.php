@@ -60,12 +60,11 @@
             </div>
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Category_id:</strong>
-                <input type="number" name="category_id" class="form-control" placeholder="Category_id">
-            </div>
-        </div>
-        </div>
+        {{--<div class="form-group">
+            <strong>Category_id:</strong>
+            <input type="number" name="category_id" class="form-control" placeholder="Category_id">
+        </div>--}}
+
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -73,6 +72,15 @@
                 <input type="text" name="description" class="form-control" placeholder="Description">
             </div>
         </div>
+        </div>
+        <div class="dropdown-content">
+  <label for="Category">Category</label>
+<select id="Category" name="category_id">
+    @foreach($categories as $category)
+    <option value="{{ $category ->id }}">{{ $category -> name }}</option>
+    @endforeach
+
+    </select>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>

@@ -62,18 +62,23 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Category_id:</strong>
-                <input type="number" name="category_id" class="form-control" value="{{ $book->category_id }}">
-            </div>
-        </div>
-        </div>
-     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>description:</strong>
                 <input type="text" name="description" class="form-control" value="{{ $book->description }}">
             </div>
         </div>
+        </div>
+        <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-12">
+     <div class="dropdown-content">
+    <label for="Category">Category</label>
+    <select id="Category" name="category_id">
+        @foreach($categories as $category)
+        <option value="{{ $category->id }}" {{ ($category->id == $book->category_id) ? 'selected' : '' }}>{{ $category->name }}</option>
+        @endforeach
+    </select>
+</div>
+
+</div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
