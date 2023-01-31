@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\book;
+use Database\Seeders\BookSeeder;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -88,7 +89,7 @@ public function bookList()
     public function show($id)
         {
         $book = Book::findOrFail($id);
-        return view('products.show',compact('book'));
+        return view('products.show', compact('book'));
         }
 
     /**
@@ -97,10 +98,10 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit($id)
     {
-        //
-        return view('products.edit',compact('book'));
+        $book = Book::findOrFail($id);
+        return view('products.edit', compact('book'));
     }
 
     /**
@@ -110,9 +111,10 @@ public function bookList()
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book, $id)
+    public function update(Request $request, $id)
     {
         $book = Book::findOrFail($id);
+
         $request->validate([
             'name' => 'required',
             'author' => 'required',
@@ -121,11 +123,8 @@ public function bookList()
             'category_id' => 'required',
             'description' => 'required'
         ]);
-        //dd($request);
-    
         
         $book->update($request->all());
-        // dd($book);
       
         return redirect()->route('products.index')
                         ->with('success','Product updated successfully');
