@@ -8,23 +8,26 @@
     <p class="text-green-800">{{ session('message') }}</p>
     </div>
 @endif
-<body class="min-h-screen">
-<section class="bg-white py-10">
-  <div class="container mx-auto">
-    <h2 class="text-left text-2xl font-medium">Categories</h2>
-    <div class="bg-neutral-400 grid grid-cols-3 gap-4">
+<body>
+<section class="text-gray-600 body-font">
+  <div class="container px-4 py-5 mx-auto">
+    <div class="flex flex-wrap w-full mb-5 flex-col items-left text-center">
+<h2 class="text-left text-2xl font-medium">Categories</h2>
+    </div>
+<div class="bg-white grid grid-cols-3 gap-4">
       @foreach ($categories as $category)
       @if($category->id < 7)
-        <div class="bg-neutral-400 p-4">
+        <div class="bg-white p-4">
           <a href="{{ route('categories.category-overview', $category->id) }}" class="text-black px-3 py-2 rounded-sm">{{ $category->name }}</a>
         </div>
         @endif
       @endforeach
     </div>
+</section>
 
-<section class="bg-white">
+<section class="bg-white text-gray-600 body-font">
   <div class="container mx-auto">
-    <h2 class="text-left text-2xl font-medium">Best Sellers</h2>
+    <h2 class=" pb-2 pt-4 text-left text-2xl font-medium ">Best Sellers</h2>
 <a href="{{route('categories.best-sellers', ['id' => 7])}}">
     <h3 class="text-right text-1xl font-medium">
         <span class="hover:underline">see more</span>

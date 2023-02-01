@@ -14,33 +14,34 @@
 @endsection
 @section('body')
 <body class="min-h-screen">
-        <div class="col-md-8">
-            <h2 class="text-center">{{ $book->name }}</h2>
-            <p class="text-center">Written by {{ $book->author }}</p>
-            <p class="text-center">Price:{{ $book->price }}€</p>
-            <div class="form-group text-center ">
-                <label for="quantity">Quantity:</label>
-                
-            
-            <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" value="{{ $book->id }}" name="id">
-                        <input type="hidden" value="{{ $book->name }}" name="name">
-                        <input type="hidden" value="{{ $book->price }}" name="price">
-                        <input type="hidden" value="{{ $book->image }}"  name="image">
-                        <input type="number" class=" border-neutral-400 border-2 form-control" id="quantity" name="quantity" min="1" value="1">
-                        <button class="border-neutral-400 border-2 text-center btn btn-primary">Add To Cart</button>
-                    </form>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                    <img src="{{ $book->image }}" style="width: 237px; height: 361px;" alt="{{ $book->name }}">
-            </div>
-            <p class="">{{ $book->description }}</p>
-        </div>
-    </div>
+  <section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="lg:flex lg:justify-between lg:w-4/5 mx-auto">
+        <img alt="{{ $book->name }}" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="{{ $book->image }}" style="width: 237px; height: 361px;">
+        <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+          <h2 class="text-sm title-font text-gray-500 tracking-widest">{{ $book->author }}</h2>
+          <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{ $book->name }}</h1>
+          <div class="flex mb-4">
+            <p class="leading-relaxed">{{ $book->description }}</p>
+          </div>
+          <div class="flex lg:mt-6">
+  <span class="title-font font-medium text-2xl text-gray-900 mr-3">Price: {{ $book->price }}€</span>
+  <div class="ml-auto">
+    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+      @csrf
+      <input type="hidden" value="{{ $book->id }}" name="id">
+      <input type="hidden" value="{{ $book->name }}" name="name">
+      <input type="hidden" value="{{ $book->price }}" name="price">
+      <input type="hidden" value="{{ $book->image }}" name="image">
+      <input type="number" class="border-neutral-400 border-2 form-control mr-2" id="quantity" name="quantity" min="1" value="1">
+      <button class="text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded">ADD TO CART</button>
+    </form>
+  </div>
 </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 @endsection
 @section('footer')
