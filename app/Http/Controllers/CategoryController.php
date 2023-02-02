@@ -45,7 +45,7 @@ class CategoryController extends Controller
     }
     
     public function bestSellersCategory() {
-        $bestSellersCategory = Category::find(7);
+        $bestSellersCategory = Category::find(19);
         return view('categories.best-sellers', ['category' => $bestSellersCategory]);
         // $books = $category->books()->take(5)->get();
         // return view('bestsellers')->with(['books' => $books]);

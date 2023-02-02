@@ -24,7 +24,7 @@ class BookSeeder extends Seeder
         $books = [];
 
 
-        for ($i = 1; $i <= 200; $i++)
+        for ($i = 1; $i <= 400; $i++)
         {
 
             $books [] = [
@@ -33,7 +33,7 @@ class BookSeeder extends Seeder
                 'description'   => $faker->realTextBetween($minNbChars = 160, $maxNbChars = 400, $indexSize = 4),
                 'image'          => url('https://i.ibb.co/n7w30Tx/Magical-Book.png'),
                 'price'         => rand(5,30),
-                'category_id'   => rand(1,7),
+                'category_id'   => rand(1,19),
 
             ];
         }
