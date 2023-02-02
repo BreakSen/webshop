@@ -16,10 +16,10 @@
         @section('body')
 
         <body>
-            <div class="row">
-                <div class="col-lg-12 margin-tb">
+            <div class="row pt-8">
+                <div class="col-lg-12 margin-tb text-right text-white">
                     <div class="pull-right">
-                        <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                        <a class="btn bg-gray-500 hover:bg-gray-600 text-white" href="{{ route('products.create') }}">+</a>
                     </div>
                 </div>
             </div>
@@ -44,20 +44,20 @@
                     <td>{{ ++$i }}</td>
                     <td><img src="{{ $book->image }}" style="width: 47px; height: 72
                     px;" alt="{{ $book->name }}"></td>
-                    <td>{{ $book->name }}</td>
+                    <td><a href="{{ route('books.book-overview', $book->id) }}">{{ $book->name }}</a></td>
                     <td>{{ $book->author }}</td>
                     <td>{{ $book->price }}€</td>
                     <td>
                         <form action="{{ route('books.destroy',$book->id) }}" method="POST">
 
-                            <a class="btn btn-info" href="{{ route('products.show',$book->id) }}">Show</a>
+                            <a class="btn btn-info hover:bg-green-400 bg-green-600" href="{{ route('products.show',$book->id) }}">Show</a>
 
-                            <a class="btn btn-primary" href="{{ route('products.edit',$book) }}">Edit</a>
+                            <a class="btn btn-primary hover:bg-blue-400 bg-blue-600" href="{{ route('products.edit',$book) }}">Edit</a>
 
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger bg-red-600 hover:bg-red-400">Delete</button>
                         </form>
 
                 

@@ -1,6 +1,8 @@
 @extends('products.layout')
   
 @section('content')
+<section class="p-5 border border-gray">
+    <div class="container mx-auto">
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -69,12 +71,12 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>description:</strong>
-                <input type="text" name="description" class="form-control" placeholder="Description">
+                <input type="text" name="description" class="pb-5 form-control" placeholder="Description">
             </div>
         </div>
         </div>
-        <div class="dropdown-content">
-  <label for="Category">Category</label>
+        <div class="pt-2 dropdown-content">
+  <label for="Category"><strong>Category</strong></label>
 <select id="Category" name="category_id">
     @foreach($categories as $category)
     <option value="{{ $category ->id }}">{{ $category -> name }}</option>
@@ -86,6 +88,9 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
+    
    
 </form>
+    </div>
+</section>
 @endsection

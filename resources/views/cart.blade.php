@@ -6,11 +6,6 @@
     <title>Cart</title>
 </head>
 <x-app-layout>
-  <x-slot name="header">
-      <h2 class="font-semibold text-xl text-gray-800">
-          {{ __('Cart') }}
-      </h2>
-  </x-slot>
   @section('body')
   <body>
           <main class="my-8">
@@ -22,7 +17,7 @@
                               <p class="text-green-800">{{ $message }}</p>
                           </div>
                       @endif
-                        <h3 class="text-3xl font-bold">Carts</h3>
+                        <h3 class="text-3xl font-bold text-gray-600 pb-8">Carts</h3>
                       <div class="flex-1">
                         <table class="w-full text-sm lg:text-base" cellspacing="0">
                           <thead>
@@ -47,7 +42,7 @@
                               </td>
                               <td>
                                 <a href="{{ route('books.book-overview', $item->id) }}">
-                                  <p class="mb-2 md:ml-4 text-purple-600 font-bold">{{ $item->name }}</p>
+                                  <p class="mb-2 md:ml-4 text-gray-600 font-bold">{{ $item->name }}</p>
                                 </a>
                               </td>
                               <td class="justify-center mt-6 md:justify-end md:flex">
@@ -82,7 +77,7 @@
                              
                           </tbody>
                         </table>
-                        <div>
+                        <div class="pt-5">
                          Total: ${{ Cart::getTotal() }}
                         </div>
                         <div>
@@ -90,7 +85,7 @@
                             @csrf
                             <button class="px-6 py-2 text-sm  rounded shadow text-black  bg-neutral-400">Clear Carts</button>
                           </form>
-                          <div class="flex justify-between mt-8">
+                          <div class="pt-10 flex justify-between mt-8">
                           <form action="\" class="text-left">
                             @csrf
                             <button class="px-6 py-2 text-sm rounded shadow text-black bg-neutral-400">continue shopping</button>

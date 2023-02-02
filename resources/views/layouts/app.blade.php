@@ -82,7 +82,7 @@
           </a>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-          <a class="text-yellow-500">MagicBook</a>
+          <a class="text-yellow-500">MAGIC BOOK</a>
           <p class="leading-normal text-yellow-400 my-5">Laan Corpus Den Hoorn 106 
             <br>Groningen, 9728 JR
           </p>
