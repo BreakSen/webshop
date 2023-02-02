@@ -22,7 +22,7 @@
         <div class="container p-12 mx-auto">
             <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
                 <div class="flex flex-col md:w-full">
-                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Shipping Address
+                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Please enter your details below.
                     </h2>
                     <form class="justify-center w-full mx-auto" method="post" action>
                         <div class="">
@@ -73,7 +73,7 @@
                             <div class="mt-4">
                             <form action="{{ route('cart.clear') }}" method="POST">
                             <a href="\">
-                                <h3 class="w-full px-6 py-2 text-white text-center bg-neutral-400 hover:bg-neutral-400">Process</h3>
+                                <h3 class="w-full px-6 py-2 text-white text-center bg-neutral-400 hover:bg-neutral-400">Check Out</h3>
                                 </a>
                                 </form>
                             </div>
