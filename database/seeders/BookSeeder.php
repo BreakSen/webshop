@@ -31,7 +31,7 @@ class BookSeeder extends Seeder
                 'name'         => $faker->sentence(rand(1,2)),
                 'author'        => $faker->name(),
                 'description'   => $faker->realTextBetween($minNbChars = 160, $maxNbChars = 400, $indexSize = 4),
-                'image'          => $faker->imageUrl(500, 775, 'books', true),
+                'image'          => url('https://i.ibb.co/n7w30Tx/Magical-Book.png'),
                 'price'         => rand(5,30),
                 'category_id'   => rand(1,7),
 
