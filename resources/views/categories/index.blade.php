@@ -16,8 +16,8 @@
     </div>
 <div class="bg-white grid grid-cols-3 gap-4">
       @foreach ($categories as $category)
-      @if($category->id < 7)
-        <div class="bg-white p-4">
+      @if($category->id < 19)
+        <div class="bg-white p-1">
           <a href="{{ route('categories.category-overview', $category->id) }}" class="text-black px-3 py-2 rounded-sm">{{ $category->name }}</a>
         </div>
         @endif
@@ -35,7 +35,7 @@
 </a>
     <div class="bg-neutral-400 grid grid-cols-5 gap-0 border border-neutral-400 border-l-0 border-r-0">
     @foreach ($categories as $category)
-    @if($category->id == 7)
+    @if($category->id == 19)
     @foreach ($category->books()->take(10)->get() as $book)
     <div class="bg-white p-4 border-t-1 border-b-1 border-l-0 border-r-0 border-neutral-400 flex items-center text-center text-lg">
     <a href="{{ route('books.book-overview', $book->id) }}">
