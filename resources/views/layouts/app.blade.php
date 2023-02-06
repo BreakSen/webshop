@@ -1,57 +1,44 @@
 <!DOCTYPE html>
-  <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="csrf-token" content="{{ csrf_token() }}">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-      <script src="https://cdn.tailwindcss.com"></script>
-      <title>{{ config('app.name', 'Laravel') }}</title>
-      <!-- Fonts -->
-      <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-      <!-- Scripts -->
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
-  </head>
-  <body class="font-sans antialiased">
-      <div class="min-h-screen bg-gray-100">
-          @include('layouts.navigation')
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>{{ config('app.name', 'Laravel') }}</title>
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-          <!-- Page Heading -->
-          @if (isset($header))
-              <header class="bg-white shadow">
-                  <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                      {{ $header }}
-                  </div>
-              </header>
-          @endif
+  <!-- Scripts -->
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-          <!-- Page Content -->
-          <main>
-              <div>
-              @yield('body')
-              </div>
-          </main>
+<body class="font-sans antialiased">
+  <div class="min-h-screen bg-gray-100">
+    @include('layouts.navigation')
+
+    <!-- Page Heading -->
+    @if (isset($header))
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        {{ $header }}
       </div>
-  </body>
-{{-- <!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-    <header>
-     <nav class="flex items-center justify-between bg-neutral-400">
-      <a href="/">
-        <img src="{{ URL('images/logo.png') }}" class= "w-24 h-24" alt="Magic Webstore Logo"/>
-    </a>
-        <div class="flex items-center">
-          <a href="/" class="fas fa-home text-[#8f763f] px-3 py-2 mr-2"></a>
-          <a href="#" class="fas fa-shopping-cart text-[#8f763f] px-3 py-2 mr-2"></a>
-        </div>
-      </nav>
     </header>
-    @yield('navbar')--}}
-    <section class="text-gray-600 body-font relative">
+    @endif
+
+    <!-- Page Content -->
+    <main>
+      <div>
+        @yield('body')
+      </div>
+    </main>
+  </div>
+</body>
+
+<!-- The footer -->
+<section class="text-gray-600 body-font relative">
   <div class="container px-5 py-16 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
@@ -78,12 +65,12 @@
         </div>
         <div class="p-2 w-full">
           <a href="\">
-          <button class="flex mx-auto text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg">Button</button>
+            <button class="flex mx-auto text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700 rounded text-lg">Button</button>
           </a>
         </div>
         <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
           <a class="text-yellow-500">MAGIC BOOK</a>
-          <p class="leading-normal text-yellow-400 my-5">Laan Corpus Den Hoorn 106 
+          <p class="leading-normal text-yellow-400 my-5">Laan Corpus Den Hoorn 106
             <br>Groningen, 9728 JR
           </p>
         </div>
@@ -92,4 +79,5 @@
   </div>
 </section>
 @yield('footer')
+
 </html>

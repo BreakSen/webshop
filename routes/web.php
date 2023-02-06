@@ -7,48 +7,24 @@ use App\HTTP\Controllers\CategoryController;
 use App\HTTP\Controllers\BookController;
 use App\Models\Category;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-// MY ROUTES
-
-// Route::get('/', function () {
-//     return view('welcome' , []);
-// });
-
-// Route::get('/', [PagesController::class, 'home'])->name('pages.home'); 
-
-//(beter and more clear)
-
+//Home page
 Route::get('/', [CategoryController::class, 'index']);
 
-// Find a category by its ID and pass it to view called ******
+//Get all books page where the user can see all books, but can only view them
+Route::get('books/all-books', [BookController::class, 'bookList'])->name('books.list');
+
+//Choosen Category page using Category_id
 Route::get('/categories/{id}', [CategoryController::class, 'categoryOverview'])->name('categories.category-overview');
 
-// Route::get('/categories/{id}}', [CategoryController::class, 'categoryOverview'])->name('categories.category-overview');
-
-// if (! file_exists($id) {
-//      dd OR ddd('this category dose not exist');        SHOW THE MSEESEGE
-//OR    abort(404);                                       GIVE THE 404 ERROR
-//OR    return redirect('/);                              WELL GO BACK TO HOME PAGE
-// })
-
-Route::get('/books/book-overview/{id}', [BookController::class, 'bookOverview'])->name('books.book-overview');
-
-// Route::get('/books/{id}', [BookController::class, 'show'])->name('books.book-overview');
-
+//Best sellers page using the bestseller Category_id 
 Route::get('/categories/best-sellers/{id}', [CategoryController::class, 'bestSellersCategory'])->name('categories.best-sellers');
 
+//Choosen book page using the Book id 
+Route::get('/books/book-overview/{id}', [BookController::class, 'bookOverview'])->name('books.book-overview');
 
-//Cart Routes
-Route::get('books/all-books', [BookController::class, 'bookList'])->name('books.list');
+
+//Shop Cart
+
 Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
@@ -58,20 +34,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-//CheckOut route
+//Check out page
 Route::get('/checkout', [CartController::class, 'checkOut'])->name('checkout');
 
 //CRUD
 Route::resource('products', BookController::class)->middleware('auth');
-//Route::get('/products/{book}', 'BookController@show')->name('products.show');
 Route::post('products/{book}', 'BookController@destroy')->name('books.destroy');
-//Route::put('products/{book}', 'BookController@update')->name('products.update');
 
-// Breeze Routes 
+//Breeze Routes 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

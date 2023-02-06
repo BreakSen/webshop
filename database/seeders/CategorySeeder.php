@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Support\Facades\DB;
 
 use public\images;
@@ -9,14 +10,11 @@ use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
+    //Hardcoded Categories data
     public function run()
     {
-        //for now this is good to use, beter way is factories
+
         DB::table('categories')->insert([
             'name' => 'Literatuur',
             'description' => 'dit zijn Literatuur boeken',
